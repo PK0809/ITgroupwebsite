@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions & Services | IT Group</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#071a33;
+    color:white;
+}
+
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:80px;
+    background:#061528;
+    display:flex;
+    align-items:center;
+    z-index:1000;
+}
+
+.nav-wrapper{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+
+.logo img{
+    height:50px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active{
+    color:#27d3f2;
+}
+
+/* Push content below fixed navbar */
+.solutions-hero{
+    padding:140px 20px 80px;
+    text-align:center;
+    background: radial-gradient(circle at 30% 30%, #0d2c5b, #071a33);
+}
+
+.solutions-hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.solutions-hero span{
+    color:#27d3f2;
+}
+
+.solutions-hero p{
+    max-width:700px;
+    margin:0 auto;
+    color:#cfd8e3;
+}
+
+/* ================= SOLUTIONS SECTION ================= */
+.solutions-section{
+    padding:80px 20px 100px;
+}
+
+.solutions-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+}
+
+/* ================= CARD ================= */
+.solution-card{
+    position:relative;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+    transition:all 0.4s ease;
+    overflow:hidden;
+}
+
+/* Glow Border */
+.solution-card::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:linear-gradient(45deg,#27d3f2,#00ffcc,#27d3f2);
+    filter:blur(25px);
+    opacity:0;
+    transition:0.5s;
+    z-index:-1;
+}
+
+.solution-card:hover::before{
+    opacity:0.8;
+}
+
+.solution-card:hover{
+    transform:translateY(-12px);
+}
+
+/* Icon */
+.solution-icon{
+    font-size:32px;
+    margin-bottom:20px;
+    color:#27d3f2;
+    transition:0.4s;
+}
+
+.solution-card:hover .solution-icon{
+    transform:scale(1.2);
+    text-shadow:0 0 20px #27d3f2;
+}
+
+.solution-card h3{
+    margin-bottom:15px;
+}
+
+.solution-card p{
+    color:#cfd8e3;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#061528;
+    padding:60px 0 20px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+}
+
+.footer-col h4,
+.footer-col h3{
+    margin-bottom:15px;
+}
+
+.footer-col a{
+    display:block;
+    color:#cfd8e3;
+    text-decoration:none;
+    margin-bottom:8px;
+}
+
+.footer-col a:hover{
+    color:#27d3f2;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:1000px){
+    .solutions-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:700px){
+    .solutions-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="navbar">
+    <div class="container nav-wrapper">
+        <div class="logo">
+            <img src="logo.png" alt="IT Group">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="solutions.html" class="active">Solutions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="solutions-hero">
+    <div class="container">
+        <h1>Solutions & <span>Services</span></h1>
+        <p>
+            Comprehensive enterprise technology solutions engineered
+            for performance, scalability and long-term reliability.
+        </p>
+    </div>
+</section>
+
+<!-- ================= SOLUTIONS ================= -->
+<section class="solutions-section">
+    <div class="container">
+        <div class="solutions-grid">
+
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-building"></i></div>
+                <h3>IT Infrastructure Design</h3>
+                <p>End-to-end planning and deployment of structured cabling, switching, routing and enterprise network architecture.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-lock"></i></div>
+                <h3>Advanced Security Systems</h3>
+                <p>CCTV surveillance, biometric access control, remote monitoring and security integration.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-wifi"></i></div>
+                <h3>Enterprise Wireless Solutions</h3>
+                <p>Campus-wide WiFi, outdoor wireless bridging and seamless mobility solutions.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Enterprise Software Integration</h3>
+                <p>CRM, ERP, automation systems and cybersecurity platforms customized for business growth.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-server"></i></div>
+                <h3>Data Center Deployment</h3>
+                <p>Server racks, cooling systems, power management and enterprise-grade deployment services.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-icon"><i class="fas fa-tools"></i></div>
+                <h3>AMC & Managed Services</h3>
+                <p>24/7 monitoring, preventive maintenance, IT consulting and long-term support.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="container footer-container">
+
+        <div class="footer-col">
+            <h3>IT Group</h3>
+            <p>Delivering enterprise networking, security, wireless and software solutions.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Head Office</h4>
+            <p>
+                HO – 59A Gopal Nagar<br>
+                Yashoda Nagar<br>
+                Kanpur – 208011
+            </p>
+            <p>📞 +91 80903 55806</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Business Hours</h4>
+            <p>Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: Closed</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 IT Group. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>
