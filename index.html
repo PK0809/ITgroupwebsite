@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Group | Enterprise Solutions</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader-wrapper">
+    <div class="loader"></div>
+</div>
+
+<!-- PAGE TRANSITION -->
+<div id="page-transition"></div>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow"></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+
+    <div class="logo">
+        <img src="logo.png" alt="IT Group">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="mega-parent">
+            <a href="#">Products ▾</a>
+            <div class="mega-menu">
+                <div class="mega-column">
+                    <h4>Infrastructure</h4>
+                    <a href="#">Networking</a>
+                    <a href="#">Data Center</a>
+                    <a href="#">Structured Cabling</a>
+                </div>
+
+                <div class="mega-column">
+                    <h4>Security</h4>
+                    <a href="#">CCTV Systems</a>
+                    <a href="#">Access Control</a>
+                    <a href="#">Fire Alarm</a>
+                </div>
+
+                <div class="mega-column">
+                    <h4>Software</h4>
+                    <a href="#">ERP</a>
+                    <a href="#">CRM</a>
+                    <a href="#">Cloud Solutions</a>
+                </div>
+            </div>
+        </li>
+
+         <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="header-social">
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <canvas id="matrix"></canvas>
+
+    <div class="hero-content">
+        <h1>
+            Empowering Enterprises <br>
+            <span id="typing"></span>
+        </h1>
+
+        <p>
+            Advanced Networking, Surveillance, Wireless & Software Solutions tailored for modern businesses.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="contact.html" class="btn-primary page-link">Get a Quote</a>
+            <a href="solutions.html" class="btn-outline">Our Solutions</a>
+            <a href="training.html" class="btn-training">Training</a>
+        </div>
+    </div>
+</section>
+
+<section class="parallax">
+  <h2>Next Generation IT Infrastructure</h2>
+</section>
+
+<section class="why fade-in">
+    <h2>Why Choose <span>IT Group</span></h2>
+    <div class="why-cards">
+        <div class="why-box">
+            <div class="icon">✔</div>
+            <h3>Certified Engineers</h3>
+            <p>Experienced professionals delivering world-class IT infrastructure.</p>
+        </div>
+        <div class="why-box">
+            <div class="icon">⚡</div>
+            <h3>Fast Deployment</h3>
+            <p>Quick and efficient implementation with minimal downtime.</p>
+        </div>
+        <div class="why-box">
+            <div class="icon">🔒</div>
+            <h3>Secure & Scalable</h3>
+            <p>Infrastructure designed for growth and maximum protection.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>IT Group</h3>
+            <p>Delivering enterprise networking, security, wireless and software solutions.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Solutions</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>Head Office</h4>
+            <p>
+                59A, Gopal Nagar<br>
+                Yashoda Nagar<br>
+                Kanpur – 208011
+            </p>
+            <p>📞 +91 80903 55806</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Business Hours</h4>
+            <p>Mon – Sat: 9:00 AM – 7:00 PM<br>
+            Sunday: Closed</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 IT Group. All Rights Reserved.
+    </div>
+</footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+/* Run after page loads */
+window.addEventListener("load", function(){
+
+/* ================= MATRIX BACKGROUND ================= */
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let letters = "01ITGROUPSECURENETWORK".split("");
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+let drops = [];
+
+for(let i=0;i<columns;i++) drops[i]=1;
+
+function draw(){
+    ctx.fillStyle="rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="#27d3f2";
+    ctx.font=fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        let text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+        if(drops[i]*fontSize>canvas.height && Math.random()>0.95)
+            drops[i]=0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(draw,33);
+
+
+document.querySelectorAll("a").forEach(link=>{
+    link.addEventListener("click", function(e){
+
+        const target = this.getAttribute("href");
+
+        if(
+            target &&
+            !target.startsWith("#") &&
+            !target.startsWith("http") &&
+            !target.startsWith("tel") &&
+            !target.startsWith("mailto")
+        ){
+            e.preventDefault();
+            window.location.href = target;
+        }
+    });
+});
+
+/* ================= LOADER ================= */
+document.querySelector(".loader-wrapper").style.display="none";
+
+/* ================= TYPING EFFECT ================= */
+const textArray = [
+    "With Smart Technology",
+    "With Advanced Security",
+    "With Intelligent Networking"
+];
+
+let typingIndex = 0, charIndex = 0, isDeleting = false;
+const typingElement = document.getElementById("typing");
+
+function typeEffect(){
+    if(typingIndex >= textArray.length) typingIndex = 0;
+
+    let currentText = textArray[typingIndex];
+
+    if(!isDeleting){
+        typingElement.textContent = currentText.substring(0, charIndex++);
+        if(charIndex > currentText.length){
+            isDeleting = true;
+            setTimeout(typeEffect,1000);
+            return;
+        }
+    } else {
+        typingElement.textContent = currentText.substring(0, charIndex--);
+        if(charIndex === 0){
+            isDeleting = false;
+            typingIndex++;
+        }
+    }
+
+    setTimeout(typeEffect,80);
+}
+typeEffect();
+
+});
+
+/* ================= SCROLL PROGRESS ================= */
+window.addEventListener("scroll", ()=>{
+    let scrollTop = document.documentElement.scrollTop;
+    let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let percent = (scrollTop / scrollHeight) * 100;
+    document.getElementById("progress-bar").style.width = percent + "%";
+});
+
+</script>
+
+<script>
+document.querySelectorAll('.page-link').forEach(link=>{
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        document.body.style.opacity = "0";
+        document.body.style.transition = "0.4s ease";
+        setTimeout(()=>{
+            window.location.href = target;
+        },400);
+    });
+});
+</script>
+
+</body>
+</html>
